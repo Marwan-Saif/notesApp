@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/components/add_note_bottom_sheet.dart';
 import 'package:notes_app/components/appbar.dart';
-import 'package:notes_app/components/custom_note_card.dart';
 import 'package:notes_app/components/notes_listview.dart';
 
 class NotesView extends StatelessWidget {
@@ -23,11 +22,11 @@ class NotesView extends StatelessWidget {
               });
         },
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         child: Column(
           children: [
-            CustomAppBar(),
+            CustomAppBar(title: "Notes", icon: Icons.search),
             Expanded(child: NotesListView()),
           ],
         ),
