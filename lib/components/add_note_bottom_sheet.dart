@@ -5,13 +5,14 @@ import 'package:notes_app/components/add_note_form.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
-  AddNoteBottomSheet({super.key});
+  const AddNoteBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
-      child: SingleChildScrollView(
+    return BlocProvider(
+      create: (context) => AddNoteCubit(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
         child: BlocConsumer<AddNoteCubit, AddNoteState>(
             listener: (context, state) {
           if (state is AddNoteFaliure) {
@@ -23,7 +24,9 @@ class AddNoteBottomSheet extends StatelessWidget {
         }, builder: (context, state) {
           return ModalProgressHUD(
             inAsyncCall: state is AddNoteloading ? true : false,
-            child: const AddNoteForm(),
+            child: const SingleChildScrollView(
+              child: AddNoteForm(),
+            ),
           );
         }),
       ),
