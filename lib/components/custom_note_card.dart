@@ -22,7 +22,7 @@ class CustomNoteItem extends StatelessWidget {
               "build your carrer with me  marwn saif",
               style: TextStyle(
                 color: Color.fromARGB(255, 69, 69, 69),
-                fontSize: 20,
+                fontSize: 18,
               ),
             ),
             trailing: IconButton(
