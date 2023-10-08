@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:notes_app/components/custom_button.dart';
 import 'package:notes_app/components/custom_text_field.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notes_app/cubits/notes_cubit.dart/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -63,6 +64,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       color: Colors.blue.value,
                     );
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                    BlocProvider.of<NotesCubit>(context).featchAllNotes();
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
