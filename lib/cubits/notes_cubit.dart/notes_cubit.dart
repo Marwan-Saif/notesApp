@@ -5,14 +5,13 @@ import 'package:notes_app/constant.dart';
 import 'package:notes_app/models/note_model.dart';
 part 'notes_state.dart';
 
-class AddNoteCubit extends Cubit<NotesState> {
-  AddNoteCubit() : super(NotesInitial());
+class NotesCubit extends Cubit<NotesState> {
+  NotesCubit() : super(NotesInitial());
 
-  featchAllNotes() async {
+  featchAllNotes() {
     try {
-      emit(Notesloading());
-      var notesBox = Hive.box(kNotesBox);
-      List<NoteModel> notes = notesBox.values.toList() as List<NoteModel>;
+      var notesBox = Hive.box<NoteModel>(kNotesBox);
+      List<NoteModel> notes = notesBox.values.toList();
       emit(NotesSuccess(notes: notes));
     } catch (e) {
       emit(NotesFaliure(e.toString()));
