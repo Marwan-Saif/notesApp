@@ -20,10 +20,10 @@ class CustomButton extends StatelessWidget {
         ),
         child: Center(
           child: isloading == true
-              ? SizedBox(
+              ? const SizedBox(
                   height: 24,
                   width: 24,
-                  child: const CircularProgressIndicator(color: Colors.black))
+                  child: CircularProgressIndicator(color: Colors.black))
               : Text(
                   title,
                   style: const TextStyle(

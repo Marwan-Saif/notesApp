@@ -20,6 +20,7 @@ class _NotesViewBodyState extends State<NotesViewBody> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),

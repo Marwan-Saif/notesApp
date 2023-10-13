@@ -47,10 +47,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
             height: 32,
           ),
           BlocBuilder<AddNoteCubit, AddNoteState>(
-            builder: (context, State) {
+            builder: (context, state) {
               return CustomButton(
                 title: "Add",
-                isloading: State is AddNoteloading == true ? true : false,
+                isloading: state is AddNoteloading == true ? true : false,
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     DateTime now = DateTime.now();
